@@ -7,7 +7,7 @@
 # first I have converted all the above mentioned bed files into .txt files using bed tools 
 #bedtools getfasta -fi /users/Vygunda/reference/hg38.fa -bed "ENCFF027BPY.bed" -fo "ENCFF027BPY.txt"
 
-# Step 1: Process ENCFF027BPY.txt
+# Step 1: Process ENCFF041GGN.txt
 input_file="ENCFF041GGN.txt"
 grepped_file="grepped_accessible_regions.txt"
 output_file="ENCFF041GGN_output_trimmed_accessible_regions.txt"
@@ -40,7 +40,7 @@ done < "$grepped_file" > "$output_file"
 # Clean up temporary file
 rm "$grepped_file"
 
-# Step 2: Process ENCFF027BPY.bed
+# Step 2: Process ENCFF041GGN.bed
 input_bed="ENCFF041GGN.bed"
 output_negative="ENCFF041GGN_negative_regions.bed"
 
