@@ -2,7 +2,7 @@
 
 # I did this process for 10 bed files 
 #Below are the files that I used
-#ENCFF168GAN.bed  ENCFF052DSF.bed  ENCFF253LML.bed  ENCFF849QFO.bed  ENCFF041GGN.bed  ENCFF922ABK/.bed  
+#ENCFF168GAN.bed  ENCFF052DSF.bed  ENCFF253LML.bed  ENCFF260PVK.bed  ENCFF041GGN.bed  ENCFF922ABK/.bed  
 #ENCFF180WXO.bed  ENCFF386GNZ.bed  ENCFF975INV.bed  ENCFF928NLF.bed   
 
 #Downloaded the above 10 different files bed narrowPeak file type from 10 different experiments.
