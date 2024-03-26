@@ -8,22 +8,23 @@
 #Downloaded the above 10 different files bed narrowPeak file type from 10 different experiments.
 
 # get the required bed file using wget command before executing this script : Download the data from the encode website
-# wget https://www.encodeproject.org/files/ENCFF041GGN/@@download/ENCFF041GGN.bed.gz
+# wget https://www.encodeproject.org/files/ENCFF168GAN/@@download/ENCFF168GAN.bed.gz
+#gunzip ENCFF168GAN.bed.gz
 
 # Convert the narrowPeakfile into a nucleotide(ATGCs)file using bedtools
-bedtools getfasta -fi /users/Vygunda/reference/hg38.fa -bed "ENCFF041GGN.bed" -fo "ENCFF041GGN.txt"
+bedtools getfasta -fi /users/Vygunda/reference/hg38.fa -bed "ENCFF168GAN.bed" -fo "ENCFF168GAN.txt"
 
 # Step 1: Extract all the nucleotides from this file 
-input_file="ENCFF041GGN.txt"
+input_file="ENCFF168GAN.txt"
 grepped_file="grepped_accessible_regions.txt"
-output_file="ENCFF041GGN_output_trimmed_accessible_regions.txt"  # This is the accessible file
+output_file="ENCFF168GAN_output_trimmed_accessible_regions.txt"  # This is the accessible file
 
 # Perform grep to filter lines not containing ">"
 grep -v ">" "$input_file" > "$grepped_file"
 
 #this is the standard file which we use to get the average length 
 grepped_standard_file="grepped_standard_accessible_regions.txt"
-standard_file="ENCFF041GGN.txt"
+standard_file="ENCFF168GAN.txt"
 grep -v ">" "$standard_file" > "$grepped_standard_file"
 
 # Calculate average sequence length
@@ -54,9 +55,9 @@ done < "$grepped_file" > "$output_file"
 # Clean up temporary file
 rm "$grepped_file"
 
-# Step 2: Process ENCFF041GGN.bed to get negative regions
-input_bed="ENCFF041GGN.bed"
-output_negative="ENCFF041GGN_negative_regions.bed"  # negative regions file 
+# Step 2: Process ENCFF168GAN.bed to get negative regions
+input_bed="ENCFF168GAN.bed"
+output_negative="ENCFF168GAN_negative_regions.bed"  # negative regions file 
 
 # Sort the BED file
 sort -k1,1 -k2,2n "$input_bed" > sorted.bed
@@ -80,20 +81,20 @@ done < sorted.bed
 rm sorted.bed
 
 # Apply awk to format output file
-awk '{$1=$1}1' OFS="\t" "$output_negative" > "ENCFF041GGN_negative_regions_tab.bed" 
+awk '{$1=$1}1' OFS="\t" "$output_negative" > "ENCFF168GAN_negative_regions_tab.bed" 
 
 
 # run the negative regions bed file to get negative txt file 
 # Step 3: Run bedtools getfasta
-output_negative_tab="ENCFF041GGN_negative_regions_tab.bed"
-output_negative_fasta="ENCFF041GGN_negative_regions_tab.txt"
+output_negative_tab="ENCFF168GAN_negative_regions_tab.bed"
+output_negative_fasta="ENCFF168GAN_negative_regions_tab.txt"
 
 bedtools getfasta -fi /users/Vygunda/reference/hg38.fa -bed "$output_negative_tab" -fo "$output_negative_fasta"
 
 
 # Step 4: Process negative_regions_tab.txt
-input_file="ENCFF041GGN_negative_regions_tab.txt"
-output_file="ENCFF041GGN_trimmed_negative_regions.txt"
+input_file="ENCFF168GAN_negative_regions_tab.txt"
+output_file="ENCFF168GAN_trimmed_negative_regions.txt"
 
 # Calculate average sequence length
 total_length=0
