@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# I did this process for 10 bed files by changing the file names manually
+# I did this process for 10 bed files 
 #Below are the files that I used
 #ENCFF168GAN.bed  ENCFF052DSF.bed  ENCFF253LML.bed  ENCFF849QFO.bed  ENCFF041GGN.bed  ENCFF922ABK/.bed  
 #ENCFF180WXO.bed  ENCFF386GNZ.bed  ENCFF975INV.bed  ENCFF928NLF.bed   
